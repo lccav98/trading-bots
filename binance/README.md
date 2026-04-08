@@ -19,18 +19,37 @@ export BINANCE_SYMBOL="BTCUSDT"
 
 ## Bots Disponíveis
 
-### 1. Grid Trading Bot (`grid_bot.py`)
+### 1. Scalping Bot (`scalping_bot.py`)
+- Alta frequência, swings pequenos
+- Usa momentum + spread do order book
+- TRXUSDT (moeda mais barata, ~$0.08)
+- Alvo: 0.3% por trade, stop: 0.15%
+
+**Executar:**
+```bash
+python scalping_bot.py
+```
+
+### 2. High Frequency Bot (`hf_bot.py`)
+- Analisa preço a cada 3 segundos
+- Signal: média móvel + volatilidade
+- executa até 3 trades por ciclo
+- Ciclo: 5 minutos
+
+**Executar:**
+```bash
+python hf_bot.py
+```
+
+### 3. Grid Trading Bot (`grid_bot.py`)
 - Estratégia: Compra/vende em níveis fixos de preço
 - Ideal para mercados laterais
 - Configurável: número de níveis, faixa de preço, valor por ordem
 
-**Parâmetros no config.py:**
-```python
-SYMBOL = 'BTCUSDT'
-GRID_LEVELS = 10
-PRICE_RANGE_PCT = 5
-ORDER_AMOUNT = 10
-```
+### 4. Advanced Bot (`advanced_bot.py`)
+- Estratégia: Média Móvil + RSI + Bollinger Bands
+- Sinais: Cruzamento de médias, sobrecompra/sobvenda
+- Stop loss e take profit configuráveis
 
 **Executar:**
 ```bash
@@ -76,8 +95,10 @@ Para ativar trading real:
 
 ## Arquivos
 
+- `scalping_bot.py` - Bot de scalping alta frequência
+- `hf_bot.py` - Bot de alta frequência com análise de momentum
 - `grid_bot.py` - Bot de grid trading
 - `advanced_bot.py` - Bot com estratégia avançada
 - `config.py` - Configurações
 - `*.log` - Logs de execução
-- `bot_state.json` - Estado do bot (salvo automaticamente)
+- `*_state.json` - Estado do bot (salvo automaticamente)
