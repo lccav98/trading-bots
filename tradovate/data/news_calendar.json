@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Non-Farm Payrolls",
+    "date": "2026-04-03",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "CPI/PPI",
+    "date": "2026-04-15",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Initial Jobless Claims",
+    "date": "2026-04-02",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Initial Jobless Claims",
+    "date": "2026-04-09",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Initial Jobless Claims",
+    "date": "2026-04-16",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Initial Jobless Claims",
+    "date": "2026-04-23",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Initial Jobless Claims",
+    "date": "2026-04-30",
+    "time_brt": "09:30"
+  },
+  {
+    "name": "Retail Sales",
+    "date": "2026-04-15",
+    "time_brt": "09:30"
+  }
+]

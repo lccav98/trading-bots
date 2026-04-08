@@ -1,0 +1,86 @@
+[
+  {
+    "url": "https://trader.tradovate.com/",
+    "method": "GET",
+    "headers": {
+      "upgrade-insecure-requests": "1",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0",
+      "sec-ch-ua-platform": "\"Windows\""
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://status.tradovateapi.com/whereisme",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://trader.tradovate.com/img/settings/tradovate-negative.svg",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/welcome",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://status.tradovateapi.com/notifications",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://live.tradovateapi.com/v1/auth/getsocialappids",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://trader.tradovate.com/img/onboarding/app-store.png",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/welcome",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  },
+  {
+    "url": "https://trader.tradovate.com/img/onboarding/play-store.png",
+    "method": "GET",
+    "headers": {
+      "sec-ch-ua-platform": "\"Windows\"",
+      "referer": "https://trader.tradovate.com/welcome",
+      "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36",
+      "sec-ch-ua": "\"Chromium\";v=\"145\", \"Not:A-Brand\";v=\"99\"",
+      "sec-ch-ua-mobile": "?0"
+    },
+    "post_data": null
+  }
+]

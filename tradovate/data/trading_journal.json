@@ -1,0 +1,663 @@
+[
+  {
+    "timestamp": "16:58:14",
+    "action": "SELL",
+    "score": 3,
+    "price": 24346.5,
+    "atr": 15.4107,
+    "reason": "[1pt] FVG bullish detected | [2pt] VWAP pullback bearish (dist=0.81%, 3 red) | [1pt] VWAP mean reversion (dist=0.81%)",
+    "details": [
+      "[1pt] FVG bullish detected",
+      "[2pt] VWAP pullback bearish (dist=0.81%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.81%)"
+    ]
+  },
+  {
+    "timestamp": "17:08:34",
+    "action": "SELL",
+    "score": 4,
+    "price": 24340.0,
+    "atr": 14.5536,
+    "reason": "[1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.78%, 3 red) | [1pt] VWAP mean reversion (dist=0.78%)",
+    "details": [
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.78%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.78%)"
+    ]
+  },
+  {
+    "timestamp": "18:24:37",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24368.75,
+    "atr": 11.6786,
+    "reason": "[2pt] Trend UP EMA ribbon + MACD hist=0.8069 | [3pt] FVG bearish + Liquidity Sweep (smart money confluence) | [1pt] VWAP mean reversion (dist=0.89%)",
+    "details": [
+      "[2pt] Trend UP EMA ribbon + MACD hist=0.8069",
+      "[3pt] FVG bearish + Liquidity Sweep (smart money confluence)",
+      "[1pt] VWAP mean reversion (dist=0.89%)"
+    ]
+  },
+  {
+    "timestamp": "18:35:39",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24363.0,
+    "atr": 11.0893,
+    "reason": "[2pt] Trend UP EMA ribbon + MACD hist=1.0246 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.86%, 3 red) | [1pt] VWAP mean reversion (dist=0.86%)",
+    "details": [
+      "[2pt] Trend UP EMA ribbon + MACD hist=1.0246",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.86%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.86%)"
+    ]
+  },
+  {
+    "timestamp": "18:40:50",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24321.5,
+    "atr": 15.5893,
+    "reason": "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia) | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.69%)",
+    "details": [
+      "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia)",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.69%)"
+    ]
+  },
+  {
+    "timestamp": "19:11:03",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24310.0,
+    "atr": 18.625,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-4.9840 | [2pt] Liquidity Sweep bullish \u2014 price rejeitou low | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.63%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-4.9840",
+      "[2pt] Liquidity Sweep bullish \u2014 price rejeitou low",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.63%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.63%)"
+    ]
+  },
+  {
+    "timestamp": "19:16:06",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24309.75,
+    "atr": 19.4464,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-4.7530 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.63%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-4.7530",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.63%)"
+    ]
+  },
+  {
+    "timestamp": "19:21:08",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24316.25,
+    "atr": 19.3214,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-3.4710 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.66%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-3.4710",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.66%)"
+    ]
+  },
+  {
+    "timestamp": "19:26:12",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24327.25,
+    "atr": 18.1071,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.8809 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.70%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.8809",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.70%)"
+    ]
+  },
+  {
+    "timestamp": "19:31:14",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24324.5,
+    "atr": 17.6429,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8504 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.69%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8504",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.69%)"
+    ]
+  },
+  {
+    "timestamp": "19:34:53",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24321.0,
+    "atr": 17.875,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.0738 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.68%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.0738",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.68%)"
+    ]
+  },
+  {
+    "timestamp": "19:36:16",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24316.5,
+    "atr": 18.0357,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8655 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.66%, 3 red) | [1pt] VWAP mean reversion (dist=0.66%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8655",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.66%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.66%)"
+    ]
+  },
+  {
+    "timestamp": "19:39:55",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24313.75,
+    "atr": 18.1429,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.0410 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.64%, 3 red) | [1pt] VWAP mean reversion (dist=0.64%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.0410",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.64%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.64%)"
+    ]
+  },
+  {
+    "timestamp": "19:41:18",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24317.5,
+    "atr": 17.7321,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.6617 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.66%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.6617",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.66%)"
+    ]
+  },
+  {
+    "timestamp": "19:44:57",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24314.5,
+    "atr": 18.0714,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8532 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.65%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8532",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.65%)"
+    ]
+  },
+  {
+    "timestamp": "19:46:20",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24311.25,
+    "atr": 13.625,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8413 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.63%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8413",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.63%)"
+    ]
+  },
+  {
+    "timestamp": "19:50:00",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24318.25,
+    "atr": 14.0536,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.3946 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.66%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.3946",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.66%)"
+    ]
+  },
+  {
+    "timestamp": "20:15:10",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24289.25,
+    "atr": 12.625,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.5933 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.53%, 3 red) | [1pt] VWAP mean reversion (dist=0.53%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.5933",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.53%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.53%)"
+    ]
+  },
+  {
+    "timestamp": "20:16:33",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24291.5,
+    "atr": 12.625,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.4497 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.54%, 3 red) | [1pt] VWAP mean reversion (dist=0.54%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.4497",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.54%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.54%)"
+    ]
+  },
+  {
+    "timestamp": "20:20:12",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24290.5,
+    "atr": 12.375,
+    "reason": "[1pt] BB oversold (dist=-0.01%) + Stoch K=12.82 > D=12.79 | [2pt] Trend DN EMA ribbon + MACD hist=-1.9144 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.54%, 3 red)",
+    "details": [
+      "[1pt] BB oversold (dist=-0.01%) + Stoch K=12.82 > D=12.79",
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.9144",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.54%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.54%)"
+    ]
+  },
+  {
+    "timestamp": "20:21:37",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24282.0,
+    "atr": 13.4286,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-2.4569 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.50%, 3 red) | [1pt] VWAP mean reversion (dist=0.50%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-2.4569",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.50%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.50%)"
+    ]
+  },
+  {
+    "timestamp": "20:25:14",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24292.5,
+    "atr": 13.5,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.7989 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.54%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.7989",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.54%)"
+    ]
+  },
+  {
+    "timestamp": "20:26:44",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24302.0,
+    "atr": 13.5,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.1927 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.58%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.1927",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.58%)"
+    ]
+  },
+  {
+    "timestamp": "20:30:24",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24324.75,
+    "atr": 15.8929,
+    "reason": "[3pt] FVG bearish + Liquidity Sweep (smart money confluence) | [1pt] VWAP mean reversion (dist=0.67%)",
+    "details": [
+      "[3pt] FVG bearish + Liquidity Sweep (smart money confluence)",
+      "[1pt] VWAP mean reversion (dist=0.67%)"
+    ]
+  },
+  {
+    "timestamp": "20:40:27",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24329.0,
+    "atr": 17.2857,
+    "reason": "[3pt] Golden Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia) | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.69%, 3 red) | [1pt] VWAP mean reversion (dist=0.69%)",
+    "details": [
+      "[3pt] Golden Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia)",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.69%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.69%)"
+    ]
+  },
+  {
+    "timestamp": "20:50:32",
+    "action": "SELL",
+    "score": 7,
+    "threshold": 4,
+    "price": 24314.0,
+    "atr": 18.6607,
+    "reason": "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia) | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.62%, 3 red) | [1pt] VWAP mean reversion (dist=0.62%)",
+    "details": [
+      "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia)",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.62%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.62%)"
+    ]
+  },
+  {
+    "timestamp": "20:51:54",
+    "action": "SELL",
+    "score": 7,
+    "threshold": 4,
+    "price": 24299.0,
+    "atr": 19.1786,
+    "reason": "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia) | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.56%, 3 red) | [1pt] VWAP mean reversion (dist=0.56%)",
+    "details": [
+      "[3pt] Death Cross EMA9/21 (peso 3 \u2014 entrada de tend\u00eancia)",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.56%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.56%)"
+    ]
+  },
+  {
+    "timestamp": "20:55:35",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24295.0,
+    "atr": 19.6607,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.5583 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.54%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.5583",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.54%)"
+    ]
+  },
+  {
+    "timestamp": "20:56:58",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24301.25,
+    "atr": 20.0179,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.1595 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.56%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.1595",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.56%)"
+    ]
+  },
+  {
+    "timestamp": "21:00:41",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24306.0,
+    "atr": 20.3214,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.2940 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.58%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.2940",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.58%)"
+    ]
+  },
+  {
+    "timestamp": "21:02:04",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24309.0,
+    "atr": 20.3929,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.1025 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.59%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.1025",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.59%)"
+    ]
+  },
+  {
+    "timestamp": "21:10:45",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24306.0,
+    "atr": 20.9821,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.0448 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.58%, 3 red) | [1pt] VWAP mean reversion (dist=0.58%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.0448",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.58%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.58%)"
+    ]
+  },
+  {
+    "timestamp": "21:12:08",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24300.5,
+    "atr": 21.375,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.3958 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.55%, 3 red) | [1pt] VWAP mean reversion (dist=0.55%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.3958",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.55%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.55%)"
+    ]
+  },
+  {
+    "timestamp": "21:15:49",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24290.25,
+    "atr": 22.4107,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-1.3018 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.51%, 3 red) | [1pt] VWAP mean reversion (dist=0.51%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-1.3018",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.51%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.51%)"
+    ]
+  },
+  {
+    "timestamp": "21:17:09",
+    "action": "SELL",
+    "score": 6,
+    "threshold": 4,
+    "price": 24297.0,
+    "atr": 22.5357,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8710 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.54%, 3 red) | [1pt] VWAP mean reversion (dist=0.54%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8710",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.54%, 3 red)",
+      "[1pt] VWAP mean reversion (dist=0.54%)"
+    ]
+  },
+  {
+    "timestamp": "21:20:50",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24296.25,
+    "atr": 22.6071,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.8478 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.53%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.8478",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.53%)"
+    ]
+  },
+  {
+    "timestamp": "21:22:10",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24294.75,
+    "atr": 23.0,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-0.9435 | [1pt] FVG bearish detected | [1pt] VWAP mean reversion (dist=0.52%)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-0.9435",
+      "[1pt] FVG bearish detected",
+      "[1pt] VWAP mean reversion (dist=0.52%)"
+    ]
+  },
+  {
+    "timestamp": "21:25:57",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24262.25,
+    "atr": 24.6786,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-4.0410 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.39%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-4.0410",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.39%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "21:27:13",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24274.25,
+    "atr": 24.6786,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-3.2752 | [2pt] Liquidity Sweep bullish \u2014 price rejeitou low | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.44%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-3.2752",
+      "[2pt] Liquidity Sweep bullish \u2014 price rejeitou low",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.44%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "21:41:02",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24271.0,
+    "atr": 21.2679,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-3.9408 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.41%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-3.9408",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.41%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "21:51:05",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24272.5,
+    "atr": 20.5,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-2.5967 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.41%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-2.5967",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.41%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "21:52:21",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24255.0,
+    "atr": 22.8036,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-3.7136 | [2pt] Liquidity Sweep bullish \u2014 price rejeitou low | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.34%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-3.7136",
+      "[2pt] Liquidity Sweep bullish \u2014 price rejeitou low",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.34%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "21:56:06",
+    "action": "SELL",
+    "score": 5,
+    "threshold": 4,
+    "price": 24230.75,
+    "atr": 22.7321,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-6.1507 | [1pt] FVG bearish detected | [2pt] VWAP pullback bearish (dist=0.24%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-6.1507",
+      "[1pt] FVG bearish detected",
+      "[2pt] VWAP pullback bearish (dist=0.24%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "22:06:13",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24214.5,
+    "atr": 22.4286,
+    "reason": "[2pt] Trend DN EMA ribbon + MACD hist=-7.5114 | [1pt] FVG bullish detected | [2pt] VWAP pullback bearish (dist=0.16%, 3 red)",
+    "details": [
+      "[2pt] Trend DN EMA ribbon + MACD hist=-7.5114",
+      "[1pt] FVG bullish detected",
+      "[2pt] VWAP pullback bearish (dist=0.16%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "22:07:30",
+    "action": "SELL",
+    "score": 4,
+    "threshold": 4,
+    "price": 24206.25,
+    "atr": 23.7321,
+    "reason": "[1pt] BB oversold (dist=-0.01%) + Stoch K=13.75 > D=6.28 | [2pt] Trend DN EMA ribbon + MACD hist=-8.0378 | [1pt] FVG bullish detected | [2pt] VWAP pullback bearish (dist=0.13%, 3 red)",
+    "details": [
+      "[1pt] BB oversold (dist=-0.01%) + Stoch K=13.75 > D=6.28",
+      "[2pt] Trend DN EMA ribbon + MACD hist=-8.0378",
+      "[1pt] FVG bullish detected",
+      "[2pt] VWAP pullback bearish (dist=0.13%, 3 red)"
+    ]
+  },
+  {
+    "timestamp": "22:11:14",
+    "action": "BUY",
+    "score": 4,
+    "threshold": 4,
+    "price": 24192.75,
+    "atr": 24.9286,
+    "reason": "[1pt] BB oversold (dist=-0.01%) + Stoch K=14.8 > D=8.14 | [2pt] Trend DN EMA ribbon + MACD hist=-9.2357 | [3pt] FVG bullish + Liquidity Sweep (smart money confluence)",
+    "details": [
+      "[1pt] BB oversold (dist=-0.01%) + Stoch K=14.8 > D=8.14",
+      "[2pt] Trend DN EMA ribbon + MACD hist=-9.2357",
+      "[3pt] FVG bullish + Liquidity Sweep (smart money confluence)"
+    ]
+  }
+]

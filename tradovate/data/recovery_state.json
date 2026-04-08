@@ -1,0 +1,19 @@
+{
+  "session_date": "2026-04-07",
+  "saved_at": "2026-04-07T19:31:01.265340",
+  "daily_pnl": 0.0,
+  "peak_pnl": 0.0,
+  "daily_high_water": 0.0,
+  "wins": 0,
+  "losses": 0,
+  "consec_losses": 0,
+  "trade_count": 0,
+  "blocked": false,
+  "block_reason": "",
+  "open_position": null,
+  "entry_price": 0.0,
+  "trailing_active": false,
+  "trailing_stop": 0.0,
+  "breakeven": false,
+  "account_balance": 50000.0
+}
