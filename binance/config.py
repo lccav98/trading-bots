@@ -6,7 +6,7 @@ PRICE_RANGE_PCT = 5
 ORDER_AMOUNT = 10
 CHECK_INTERVAL = 10
 
-PAPER_MODE = True
+PAPER_MODE = os.getenv('PAPER_MODE', 'true').lower() != 'false'
 PAPER_BALANCE = 100
 
 API_KEY = os.getenv('BINANCE_API_KEY', '')

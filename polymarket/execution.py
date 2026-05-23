@@ -5,6 +5,7 @@ import time
 
 logger = logging.getLogger("execution")
 
+
 class ExecutionEngine:
     """Places and manages orders on Polymarket."""
 
@@ -47,16 +48,16 @@ class ExecutionEngine:
 
         try:
             order_args = OrderArgs(
-                token_id=signal.token_id,
-                price=price,
-                size=num_shares,
-                side=signal.side,
-                options={} if not neg_risk else {"neg_risk": True}
+                token_id=signal.token_id, price=price, size=num_shares, side=signal.side
             )
             signed = self.client.create_order(order_args)
             response = self.client.post_order(signed, OrderType.GTC)
 
-            order_id = response.get("orderID") if isinstance(response, dict) else getattr(response, "orderID", None)
+            order_id = (
+                response.get("orderID")
+                if isinstance(response, dict)
+                else getattr(response, "orderID", None)
+            )
 
             logger.info(
                 f"Placed {signal.side} order: {num_shares:.1f} shares "
@@ -104,13 +105,17 @@ class ExecutionEngine:
                     pos["size"] -= size
 
                 if pos["size"] != 0:
-                    pos["avg_price"] = pos["total_cost"] / abs(pos["size"]) if pos["size"] != 0 else 0
+                    pos["avg_price"] = (
+                        pos["total_cost"] / abs(pos["size"]) if pos["size"] != 0 else 0
+                    )
                 else:
                     pos["avg_price"] = 0
                     pos["total_cost"] = 0
 
             # Remove closed positions
-            self.positions = {k: v for k, v in self.positions.items() if abs(v["size"]) > 0.001}
+            self.positions = {
+                k: v for k, v in self.positions.items() if abs(v["size"]) > 0.001
+            }
         except Exception as e:
             logger.error(f"Position sync failed: {e}")
 

@@ -31,3 +31,9 @@ package-lock.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Bot States & Local Data
+*_state.json
+backtest_results.json
+optimization_results.json
+optimization_v*.json

@@ -1,0 +1,28 @@
+Assunto: Solicitação de Desbloqueio - Carteira 0xa5d5a2bfca0424bce35f8bbabfaf019b332eb4b3
+
+Prezada Equipe de Suporte da Polymarket,
+
+Obrigado pela resposta!
+
+Meu objetivo é: **desbloquear a conta para voltar a operar**.
+
+Quando tento enviar ordens, recebo o erro:
+"'0xa5d5a2bfca0424bce35f8bbabfaf019b332eb4b3' address banned"
+
+Informações adicionais:
+- Endereço da carteira: 0xa5d5a2bfca0424bce35f8bbabfaf019b332eb4b3
+- Usuários desde: Abril 2026
+- Problema: Não consigo fazer ordens de compra/venda
+- Tenho posições abertas (~$5.17) que não consigo fechar
+
+ Solicito:
+1. Verificar o motivo do bloqueio
+2. Quais documentos ou étapes preciso completar para desbloquear
+3. Se há necessidade de verificação KYC
+
+Desde já, agradeço a atenção.
+
+Atenciosamente,
+Luiz Claudio Araujo
+[Email]
+[Data]

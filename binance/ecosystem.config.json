@@ -1,0 +1,16 @@
+{
+  "apps": [
+    {
+      "name": "binance-futures-bot",
+      "script": "hf_bot_futures.py",
+      "interpreter": "python3",
+      "watch": false,
+      "autorestart": true,
+      "max_restarts": 20,
+      "restart_delay": 5000,
+      "error_file": "logs/pm2_error.log",
+      "out_file": "logs/pm2_out.log",
+      "log_date_format": "YYYY-MM-DD HH:mm:ss"
+    }
+  ]
+}

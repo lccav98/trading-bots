@@ -1,0 +1,17 @@
+[Unit]
+Description=Binance Futures Trading Bot
+After=network.target
+
+[Service]
+Type=simple
+User=opc
+WorkingDirectory=/home/opc/trading-bot
+ExecStart=/home/opc/trading-bot/venv/bin/python3 hf_bot_futures.py
+Restart=always
+RestartSec=10
+EnvironmentFile=/home/opc/trading-bot/.env
+StandardOutput=append:/home/opc/trading-bot/logs/systemd_out.log
+StandardError=append:/home/opc/trading-bot/logs/systemd_error.log
+
+[Install]
+WantedBy=multi-user.target

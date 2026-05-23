@@ -19,70 +19,30 @@ export BINANCE_SYMBOL="BTCUSDT"
 
 ## Bots Disponíveis
 
-### 1. Scalping Bot (`scalping_bot.py`)
-- Alta frequência, swings pequenos
-- Usa momentum + spread do order book
-- TRXUSDT (moeda mais barata, ~$0.08)
-- Alvo: 0.3% por trade, stop: 0.15%
+### High Frequency Bot (`hf_bot.py`)
+- Analisa momentum de curto prazo (1 e 5 candles)
+- Filtro de volatilidade para evitar entradas em mercado agitado
+- TRXUSDT, timeframe 3m
+- Parâmetros otimizados por backtest (180 dias, 972 combinações):
 
-**Executar:**
-```bash
-python scalping_bot.py
+```python
+profit_target = 0.007   # 0.7% por trade
+stop_loss     = 0.005   # 0.5%
+c1_thresh     = 0.002   # momentum 1 candle > 0.2%
+c5_thresh     = 0.002   # momentum 5 candles > 0.2%
 ```
-
-### 2. High Frequency Bot (`hf_bot.py`)
-- Analisa preço a cada 3 segundos
-- Signal: média móvel + volatilidade
-- executa até 3 trades por ciclo
-- Ciclo: 5 minutos
 
 **Executar:**
 ```bash
 python hf_bot.py
 ```
 
-### 3. Grid Trading Bot (`grid_bot.py`)
-- Estratégia: Compra/vende em níveis fixos de preço
-- Ideal para mercados laterais
-- Configurável: número de níveis, faixa de preço, valor por ordem
-
-### 4. Advanced Bot (`advanced_bot.py`)
-- Estratégia: Média Móvil + RSI + Bollinger Bands
-- Sinais: Cruzamento de médias, sobrecompra/sobvenda
-- Stop loss e take profit configuráveis
-
-**Executar:**
-```bash
-python grid_bot.py
-```
-
-### 2. Advanced Bot (`advanced_bot.py`)
-- Estratégia: Média Móvel + RSI + Bollinger Bands
-- Sinais: Cruzamento de médias, sobrecompra/sobvenda
-- Stop loss e take profit configuráveis
-
-**Parâmetros:**
-```python
-short_period = 7
-long_period = 25
-stop_loss_pct = 2
-take_profit_pct = 5
-```
-
-**Executar:**
-```bash
-python advanced_bot.py
-```
-
 ## Modo Papel (Paper Trading)
 
-Ambos bots iniciam em modo papel por padrão (`paper_mode: True`).
-Nenhuma ordem real é executada - apenas simulada.
+O bot inicia em modo papel por padrão. Para ativar trading real, defina no `.env`:
 
-Para ativar trading real:
-```python
-'paper_mode': False
-# E configurar API key/secret
+```bash
+PAPER_MODE=false
 ```
 
 ## Modo Real
@@ -95,10 +55,10 @@ Para ativar trading real:
 
 ## Arquivos
 
-- `scalping_bot.py` - Bot de scalping alta frequência
-- `hf_bot.py` - Bot de alta frequência com análise de momentum
-- `grid_bot.py` - Bot de grid trading
-- `advanced_bot.py` - Bot com estratégia avançada
-- `config.py` - Configurações
+- `hf_bot.py` - Bot principal (único com backtest positivo)
+- `webhook_bot.py` - Endpoint Flask para sinais externos (TradingView)
+- `config.py` - Configurações globais
+- `backtest.py` - Backtest histórico das estratégias
+- `optimize.py` - Grid search de parâmetros
 - `*.log` - Logs de execução
 - `*_state.json` - Estado do bot (salvo automaticamente)
