@@ -15,7 +15,8 @@ class PositionManager:
         return self.position is not None
 
     def open(self, price, qty, cost, stop_loss_pct, tier1_pct, tier2_pct, trail_pct,
-             direction='long', symbol='', timeframe='', atr_mult=1.0):
+             direction='long', symbol='', timeframe='', atr_mult=1.0,
+             be_trigger_pct=0.008, be_offset_pct=0.003):
         stop_price = price * (1 - stop_loss_pct) if direction == 'long' else price * (1 + stop_loss_pct)
         self.position = {
             'symbol': symbol,
@@ -33,6 +34,8 @@ class PositionManager:
             'tier2': tier2_pct,
             'entry_time': time.time(),
             'atr_mult': atr_mult,
+            'be_trigger_pct': be_trigger_pct,
+            'be_offset_pct': be_offset_pct,
         }
         icon = f"⬆️ {direction.upper()}" if direction == 'long' else f"⬇️ {direction.upper()}"
         logger.info(
@@ -82,18 +85,20 @@ class PositionManager:
 
         # When in profit, move SL to breakeven + 0.3% (guarantee profit)
         # This prevents catastrophic loss when trade turns against us
+        be_trigger = pos.get('be_trigger_pct', 0.008)
+        be_offset  = pos.get('be_offset_pct', 0.003)
         if not pos.get('breakeven_moved', False):
-            if pnl_pct >= 0.008:  # 0.8% profit
+            if pnl_pct >= be_trigger:
                 if direction == 'long':
-                    new_stop = entry * (1 + 0.003)  # SL at breakeven + 0.3%
+                    new_stop = entry * (1 + be_offset)  # SL no breakeven + offset
                     if new_stop > pos['stop_price']:
-                        pos['stop_price'] = min(new_stop, entry * 1.005)
+                        pos['stop_price'] = min(new_stop, entry * (1 + be_offset + 0.002))
                         pos['breakeven_moved'] = True
                         logger.info(f"⛑️ Stop indo para breakeven: {pos['stop_price']:.6f}")
                 else:
-                    new_stop = entry * (1 - 0.003)
+                    new_stop = entry * (1 - be_offset)
                     if new_stop < pos['stop_price']:
-                        pos['stop_price'] = max(new_stop, entry * 0.995)
+                        pos['stop_price'] = max(new_stop, entry * (1 - be_offset - 0.002))
                         pos['breakeven_moved'] = True
                         logger.info(f"⛑️ Stop indo para breakeven: {pos['stop_price']:.6f}")
 

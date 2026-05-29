@@ -23,56 +23,6 @@ from core.sizing import position_size_kelly
 import pandas as pd
 from binance.client import Client
 
-# --- DNS Fallback: usa Google/Cloudflare quando o sistema falha ---
-import socket as _socket
-import subprocess as _subprocess
-
-_original_getaddrinfo = _socket.getaddrinfo
-
-
-def _resolve_via_google(host):
-    """Tenta resolver via nslookup com 8.8.8.8"""
-    try:
-        result = _subprocess.run(
-            ['nslookup', '-type=A', host, '8.8.8.8'],
-            capture_output=True, text=True, timeout=3
-        )
-        if result.returncode == 0:
-            for line in result.stdout.split('\n'):
-                if 'Address:' in line and '8.8.8.8' not in line:
-                    ip = line.split('Address:')[-1].strip()
-                    if ip:
-                        return ip
-        # Try Cloudflare too
-        result = _subprocess.run(
-            ['nslookup', '-type=A', host, '1.1.1.1'],
-            capture_output=True, text=True, timeout=3
-        )
-        if result.returncode == 0:
-            for line in result.stdout.split('\n'):
-                if 'Address:' in line and '1.1.1.1' not in line:
-                    ip = line.split('Address:')[-1].strip()
-                    if ip:
-                        return ip
-    except Exception:
-        pass
-    return None
-
-
-def _robust_getaddrinfo(host, port, family=0, type=0, proto=0, flags=0):
-    try:
-        return _original_getaddrinfo(host, port, family, type, proto, flags)
-    except _socket.gaierror:
-        ip = _resolve_via_google(host)
-        if ip:
-            # Return a getaddrinfo-compatible tuple
-            return [(_socket.AF_INET, type, proto, '', (ip, port))]
-        raise
-
-
-_socket.getaddrinfo = _robust_getaddrinfo
-# ----------------------------------------------------------------
-
 load_dotenv()
 
 COMMISSION = 0.0005
@@ -106,7 +56,16 @@ class FuturesBot:
         self.client = Client(api_key, api_secret) if api_key and api_secret else None
         if self.client:
             import requests
-            adapter = requests.adapters.HTTPAdapter(pool_connections=32, pool_maxsize=32)
+            from urllib3.util.retry import Retry
+            retry = Retry(
+                total=3, connect=3, read=3,
+                backoff_factor=0.5,
+                status_forcelist=(429, 500, 502, 503, 504),
+                allowed_methods=frozenset(['GET']),
+            )
+            adapter = requests.adapters.HTTPAdapter(
+                pool_connections=32, pool_maxsize=32, max_retries=retry
+            )
             self.client.session.mount('https://', adapter)
             self.client.session.mount('http://', adapter)
         self.symbols  = UNIVERSE[:]
@@ -131,9 +90,14 @@ class FuturesBot:
             adaptive=True,
         )
         self.smc = SMCAnalyzer(swing_length=10)
-        self.position_fraction    = 0.15
+        self.position_fraction    = 0.20
         self.max_trades_per_cycle = 3
         self.cycle_duration       = 300
+        # Circuit breaker de drawdown (proteção de sessão)
+        self.max_session_drawdown = float(os.getenv('MAX_SESSION_DRAWDOWN', '0.08'))  # 8% do pico
+        self.dd_pause_seconds     = int(os.getenv('DD_PAUSE_SECONDS', '14400'))       # pausa 4h
+        self.equity_peak          = self.balance
+        self.dd_blocked_until     = 0.0
         self._load_state()
         if not self.paper_mode and self.client:
             self._sync_balance()
@@ -368,11 +332,14 @@ class FuturesBot:
         t1  = tf_params.get('tier1',    0.015)
         t2  = tf_params.get('tier2',    0.030)
         trl = tf_params.get('trail_pct', 0.012)
+        be_trig = tf_params.get('be_trigger_pct', 0.008)
+        be_off  = tf_params.get('be_offset_pct', 0.003)
 
         self.pos_mgr.open(
             price=price, qty=qty, cost=cost,
             stop_loss_pct=sl, tier1_pct=t1, tier2_pct=t2,
             trail_pct=trl, direction=direction, symbol=symbol, timeframe=tf_label,
+            be_trigger_pct=be_trig, be_offset_pct=be_off,
         )
 
         icon = '⬆️ LONG' if direction == 'long' else '⬇️ SHORT'
@@ -423,6 +390,10 @@ class FuturesBot:
                 self._sync_balance()
             except Exception as e:
                 logger.error(f"Futures close {symbol} falhou: {e}")
+                if "-2015" in str(e) or "code=-2015" in str(e) or "permissions" in str(e).lower() or "invalid api-key" in str(e).lower():
+                    logger.critical(f"FATAL: Bloqueio de IP ou Chave de API na Binance! Encerrando o bot de forma limpa para evitar IP ban. Erro: {e}")
+                    import sys
+                    sys.exit("Parada de seguranca por erro de IP ou credenciais da API Binance.")
                 return
 
         self.daily_pnl += pnl
@@ -450,6 +421,43 @@ class FuturesBot:
                 self.cd_mgr.record_win(symbol, timeframe=tf)
             self.pos_mgr.close_full()
             self.trade_count += 1
+
+    def _check_drawdown(self):
+        """Circuit breaker: pausa novas entradas se o saldo cair além do limite vs pico da sessão."""
+        if self.balance > self.equity_peak:
+            self.equity_peak = self.balance
+        now = time.time()
+        if now < self.dd_blocked_until:
+            return True
+        if self.equity_peak <= 0:
+            return False
+        dd = (self.equity_peak - self.balance) / self.equity_peak
+        if dd >= self.max_session_drawdown:
+            self.dd_blocked_until = now + self.dd_pause_seconds
+            logger.critical(
+                f"CIRCUIT BREAKER: drawdown {dd*100:.1f}% >= {self.max_session_drawdown*100:.0f}% "
+                f"(pico={self.equity_peak:.4f} saldo={self.balance:.4f}). "
+                f"Novas entradas pausadas por {self.dd_pause_seconds/3600:.1f}h."
+            )
+            return True
+        return False
+
+    def _get_trend_4h(self, sym):
+        """Confirmação de tendência 4H via EMAs. Retorna 'long', 'short' ou 'neutral'."""
+        df_4h = self.get_klines(sym, Client.KLINE_INTERVAL_4HOUR, limit=40, ttl=900)
+        if df_4h is None or len(df_4h) < 25:
+            return 'neutral'
+        close = df_4h['close']
+        e5, e10, e20 = Indicators.ema(close, 5), Indicators.ema(close, 10), Indicators.ema(close, 20)
+        try:
+            c, v5, v10, v20 = close.iloc[-2], e5.iloc[-2], e10.iloc[-2], e20.iloc[-2]
+        except Exception:
+            return 'neutral'
+        if c > v5 > v10 > v20:
+            return 'long'
+        if c < v5 < v10 < v20:
+            return 'short'
+        return 'neutral'
 
     def _get_trend_1h(self, sym):
         """Retorna 'long', 'short', ou 'neutral' baseado em 1H EMAs + ADX"""
@@ -511,6 +519,11 @@ class FuturesBot:
         if htf_trend == 'neutral':
             return None, f"{sym}:NO_TREND"
 
+        # === CONFIRMAÇÃO 4H: rejeita entradas que conflitam com o timeframe maior ===
+        trend_4h = self._get_trend_4h(sym)
+        if trend_4h != 'neutral' and trend_4h != htf_trend:
+            return None, f"{sym}:4H_CONFLITO"
+
         # SMC Analysis
         try:
             smc_state = self.smc.analyze(df_15m)
@@ -570,7 +583,7 @@ class FuturesBot:
             'trail_pct': 0.005,
             'rsi_max': 70, 'stoch_max': 80,
             'rsi_short_min': 30, 'stoch_short_min': 30,
-            'adx_thresh': 0, 'vol_min_ratio': 1.5,
+            'adx_thresh': 0, 'vol_min_ratio': 1.8,
         }
         params_low_vol = {
             'c1_thresh': 0.0001, 'c5_thresh': 0.0003,
@@ -639,6 +652,10 @@ class FuturesBot:
                     continue
 
                 if self.cd_mgr.is_blocked('__global__'):
+                    time.sleep(30)
+                    continue
+
+                if self._check_drawdown():
                     time.sleep(30)
                     continue
 
