@@ -354,6 +354,19 @@ class FuturesBot:
         })
         return True
 
+    def _exchange_position_qty(self, symbol):
+        """Quantidade absoluta da posição real na corretora (0 se não houver)."""
+        if not self.client:
+            return 0.0
+        try:
+            info = self.client.futures_position_information(symbol=symbol)
+            for p in info:
+                if p.get('symbol') == symbol:
+                    return abs(float(p.get('positionAmt', 0)))
+        except Exception as e:
+            logger.warning(f"Falha ao consultar posição real {symbol}: {e}")
+        return 0.0
+
     def _close_position(self, price, reason, partial_pct=1.0):
         pos = self.pos_mgr.position
         if not pos:
@@ -389,11 +402,34 @@ class FuturesBot:
                 self.balance += notional_c + pnl
                 self._sync_balance()
             except Exception as e:
+                msg = str(e)
                 logger.error(f"Futures close {symbol} falhou: {e}")
-                if "-2015" in str(e) or "code=-2015" in str(e) or "permissions" in str(e).lower() or "invalid api-key" in str(e).lower():
+                if "-2015" in msg or "permissions" in msg.lower() or "invalid api-key" in msg.lower():
                     logger.critical(f"FATAL: Bloqueio de IP ou Chave de API na Binance! Encerrando o bot de forma limpa para evitar IP ban. Erro: {e}")
                     import sys
                     sys.exit("Parada de seguranca por erro de IP ou credenciais da API Binance.")
+                # -2022 ReduceOnly rejeitado / -2011 / -4046: a posição pode já não existir
+                if "-2022" in msg or "ReduceOnly" in msg or "-2011" in msg or "-4046" in msg:
+                    real_qty = self._exchange_position_qty(symbol)
+                    if real_qty <= 0:
+                        logger.warning(
+                            f"{symbol}: posição inexistente na corretora — "
+                            f"limpando estado interno para destravar o bot"
+                        )
+                        self.pos_mgr.close_full()
+                        self._sync_balance()
+                        self.trade_history.append({
+                            'type': 'CLOSE', 'symbol': symbol, 'direction': direction,
+                            'price': price, 'qty': 0, 'pnl': 0.0,
+                            'reason': f'{reason}/orphan_cleanup',
+                            'timeframe': pos.get('timeframe', '15m'),
+                            'time': datetime.now().isoformat()
+                        })
+                    else:
+                        logger.warning(
+                            f"{symbol}: corretora ainda reporta {real_qty} — "
+                            f"qty interna pode estar dessincronizada (interna={qty_c})"
+                        )
                 return
 
         self.daily_pnl += pnl
