@@ -98,10 +98,13 @@ class FuturesBot:
         self.dd_pause_seconds     = int(os.getenv('DD_PAUSE_SECONDS', '14400'))       # pausa 4h
         self.equity_peak          = self.balance
         self.dd_blocked_until     = 0.0
+        # equity_peak é reajustado após _sync_balance abaixo (saldo real)
         self._load_state()
         if not self.paper_mode and self.client:
             self._sync_balance()
             self._set_leverage_all()
+        # Pico de equity inicia no saldo real já sincronizado (evita drawdown falso)
+        self.equity_peak = self.balance
         logger.info(
             f"Saldo: {self.balance:.4f} USDT | "
             f"Modo: {'REAL' if not self.paper_mode else 'PAPER'} | "
